@@ -3,7 +3,7 @@
 namespace Packages\MakePackager\Generators;
 
 use Illuminate\Filesystem\Filesystem;
-use Nwidart\Modules\Exceptions\FileAlreadyExistException;
+use Packages\MakePackager\Exceptions\FileAlreadyExistException;
 
 class FileGenerator extends Generator
 {
