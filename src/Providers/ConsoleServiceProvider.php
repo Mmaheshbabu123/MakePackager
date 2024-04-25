@@ -21,7 +21,7 @@ class ConsoleServiceProvider extends ServiceProvider
       Commands\AbstractControllerMakeCommand::class,
       Commands\JobMakeCommand::class,
       Commands\EventMakeCommand::class,
-    Commands\ModelMakeCommand::class,
+      Commands\ModelMakeCommand::class,
       Commands\ListenerMakeCommand::class,
       Commands\MigrationMakeCommand::class
     ];
