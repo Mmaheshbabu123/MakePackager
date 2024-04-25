@@ -1,5 +1,5 @@
 {
-    "name": "Infanion/sample",
+    "name": "packages/makepackager",
     "description": "",
     "authors": [
         {
@@ -7,20 +7,21 @@
             "email": "infanion@gmail.com"
         }
     ],
-    "extra": {
-        "laravel": {
-            "providers": [],
-            "aliases": {
-
-            }
-        }
-    },
-    "autoload": {
+     "autoload": {
         "psr-4": {
             "Packages\\MakePackager\\": "src/"
         },
         "files": [
           "src/helpers.php"
         ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": ["Packages\\MakePackager\\Providers\\MakePackagerServiceProvider"],
+            "aliases": {
+
+            }
+        }
     }
+   
 }
