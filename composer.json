@@ -1,5 +1,5 @@
 {
-    "name": "infanion/makepackage",
+    "name": "packages/makepackager",
     "description": "",
     "authors": [
         {
@@ -9,7 +9,7 @@
     ],
     "extra": {
         "laravel": {
-            "providers": [],
+            "providers": ["Packages\\MakePackager\\MakePackagerServiceProvider"],
             "aliases": {
 
             }
