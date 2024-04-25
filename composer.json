@@ -7,6 +7,14 @@
             "email": "infanion@gmail.com"
         }
     ],
+     "autoload": {
+        "psr-4": {
+            "Packages\\MakePackager\\": "src/"
+        },
+        "files": [
+          "src/helpers.php"
+        ]
+    },
     "extra": {
         "laravel": {
             "providers": ["Packages\\MakePackager\\MakePackagerServiceProvider"],
@@ -15,12 +23,5 @@
             }
         }
     },
-    "autoload": {
-        "psr-4": {
-            "Packages\\MakePackager\\": "src/"
-        },
-        "files": [
-          "src/helpers.php"
-        ]
-    }
+   
 }
