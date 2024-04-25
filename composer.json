@@ -17,7 +17,7 @@
     },
     "extra": {
         "laravel": {
-            "providers": ["Packages\\MakePackager\\MakePackagerServiceProvider"],
+            "providers": ["Packages\\MakePackager\\Providers\\MakePackagerServiceProvider"],
             "aliases": {
 
             }
