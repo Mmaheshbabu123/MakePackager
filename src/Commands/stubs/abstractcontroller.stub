@@ -1,0 +1,53 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Validation\ValidationException;
+
+use Illuminate\Support\Facades\Validator;
+
+abstract class AbstractController extends BaseController
+{
+  use ValidatesRequests;
+
+    protected abstract function storeRules(): array;
+
+    protected abstract function updateRules($id): array;
+
+    protected function validateForStore(Request $request)
+    {
+        return $this->validateWith($request->all(), $this->storeRules());
+    }
+
+    protected function validateForUpdate(Request $request,$id=null)
+    {
+        return $this->validateWith($request->all(), $this->updateRules($id));
+    }
+
+    protected function validateWith(array $data, array $rules)
+    {
+      $validator = Validator::make($data, $rules);
+
+        if ($validator->fails()) {
+            throw new \Exception($validator->errors());
+        }
+
+        return 'No Error';
+    }
+
+    protected function validateRequest(Request $request, $editMode = false,$id = null)
+    {
+        try {
+            if ($editMode) {
+                return $this->validateForUpdate($request,$id);
+            } else {
+                return $this->validateForStore($request);
+            }
+        } catch (ValidationException $e) {
+            return redirect()->back()->withErrors($e->errors())->withInput();
+        }
+    }
+}

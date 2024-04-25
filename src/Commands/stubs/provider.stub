@@ -1,0 +1,36 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Support\ServiceProvider;
+
+class $CLASS$ extends ServiceProvider
+{
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
+          $this->app->register(RouteServiceProvider::class);
+    }
+    public function boot()
+    {
+       $this->loadMigrationsFrom(__DIR__.'/../Database/migrations');
+      //  parent::boot();
+    //  $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+    //  $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
+     $this->mergeConfigFrom(__DIR__.'/../Config/config.php','$MODULE$');
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return [];
+    }
+}

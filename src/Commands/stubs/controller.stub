@@ -1,0 +1,102 @@
+<?php
+
+namespace $CLASS_NAMESPACE$;
+
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+
+class $CLASS$ extends AbstractController
+{
+
+  protected function storeRules(): array
+ {
+     return [
+         'name' => 'required|string|max:255|unique:table_name', // Ensure title is unique in your_table_name
+         // Add more validation rules as needed
+     ];
+ }
+ protected function updateRules($id): array
+{
+    return [
+        'name' => 'required|string|max:255|unique:table_name,name,'.$id, // Ensure title is unique in your_table_name
+        // Add more validation rules as needed
+    ];
+}
+    /**
+     * Display a listing of the resource.
+     * @return Renderable
+     */
+    public function index()
+    {
+        return view('$LOWER_NAME$::index');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     * @return Renderable
+     */
+    public function create()
+    {
+        return view('$LOWER_NAME$::create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     * @param Request $request
+     * @return Renderable
+     */
+    public function store(Request $request)
+    {
+      // Perform validation
+      $validatedData = $this->validateRequest($request,false);
+      return $validatedData;
+      // Insert data into the database
+      // Your code to insert data...
+    }
+
+    /**
+     * Show the specified resource.
+     * @param int $id
+     * @return Renderable
+     */
+    public function show($id)
+    {
+        return view('$LOWER_NAME$::show');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     * @param int $id
+     * @return Renderable
+     */
+    public function edit($id)
+    {
+        return view('$LOWER_NAME$::edit');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     * @param Request $request
+     * @param int $id
+     * @return Renderable
+     */
+    public function update(Request $request, $id)
+    {
+      // Perform validation for update operation
+      $validatedData = $this->validateRequest($request, true, $id);
+      return $validatedData;
+      // Update data in the database
+      // Your code to update data..
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     * @param int $id
+     * @return Renderable
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}

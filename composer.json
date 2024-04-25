@@ -1,0 +1,26 @@
+{
+    "name": "Infanion/sample",
+    "description": "",
+    "authors": [
+        {
+            "name": "Infanion ",
+            "email": "infanion@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Packages\\MakePackager\\": "src/"
+        },
+        "files": [
+          "src/helpers.php"
+        ]
+    }
+}
