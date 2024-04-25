@@ -28,7 +28,7 @@ return [
 
     'stubs' => [
         'enabled' => false,
-        'path' => base_path('packages/Ifo/laravel-modules/src/Commands/stubs'),
+        'path' => base_path('packages/MakePackager/src/Commands/stubs'),
         'files' => [
             'routes/web' => 'src/routes/web.php',
             'routes/api' => 'src/routes/api.php',
