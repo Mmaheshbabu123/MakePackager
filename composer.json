@@ -7,6 +7,7 @@
             "email": "maheshbabumanikanti.infanion@gmail.com"
         }
     ],
+    "license": "MIT",
      "autoload": {
         "psr-4": {
             "Packages\\MakePackager\\": "src/"
