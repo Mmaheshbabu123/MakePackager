@@ -12,8 +12,16 @@ successfully package installed
 
 STEP 1:
       Run the following command:
+      
       php artisan package:make Your pakage name
+      
       This command will create the folder structure and necessary files for your package, including routes, ServiceProvider, and an AbstractController for enforcing rules and validations.
+      
+      see the below screenshot
+      
+![Screenshot from 2024-04-26 15-39-45](https://github.com/Mmaheshbabu123/MakePackager/assets/29708637/f12f0829-9023-4a55-bfaf-4025d59bde64)
+
+
 
 Folder Structure:
 
