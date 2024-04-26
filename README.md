@@ -85,7 +85,7 @@ file path: packages/MakePackager/src/config/config.php
 
 'namespace' => 'Packages',
 
-'middleware'=>'lienionauth.api',
+'middleware'=>'infanionauth.api',
 
 
 # MakePackager Artisan Commands
