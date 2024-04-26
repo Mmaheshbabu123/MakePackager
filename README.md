@@ -79,9 +79,12 @@ Folder Structure:
          Route::middleware('lienionauth.api')
          ->namespace($this->moduleGoLiveNameSpace)
          ->group(base_path('packages/Projects/GoLive/src/routes/api.php'));
-you have to define which authnicate middleware register for package in config file
+you have to define which authnicate middleware register for package in config file.
+
 file path: packages/MakePackager/src/config/config.php
+
 'namespace' => 'Packages',
+
 'middleware'=>'lienionauth.api',
 
 
