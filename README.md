@@ -1,4 +1,7 @@
 # HOW TO SETUP MakePackager Module in your laravel Project
+This package is a CLI tool that helps you build a fully structured package for the Laravel application without spending a lot of time.
+
+You do not need to struggle with the skeleton initialization for your package anymore. Instead, focus on writing the source code and letting the organization of the package structure for Laravel Packager
 
 STEP 1: composer require ifo/laravel-make-packager
 
