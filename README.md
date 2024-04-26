@@ -76,7 +76,7 @@ Folder Structure:
   In Additinally Middleware authincations also will done automaticallly no need to regsister in Routes servericeProvider file
    like below
 
-         Route::middleware('lienionauth.api')
+         Route::middleware('LaravelPackager.api')
          ->namespace($this->moduleGoLiveNameSpace)
          ->group(base_path('packages/Projects/GoLive/src/routes/api.php'));
 you have to define which authnicate middleware register for package in config file.
@@ -85,7 +85,7 @@ file path: packages/MakePackager/src/config/config.php
 
 'namespace' => 'Packages',
 
-'middleware'=>'infanionauth.api',
+'middleware'=>'LaravelPackager.api',
 
 
 # MakePackager Artisan Commands
