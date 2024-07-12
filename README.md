@@ -93,13 +93,13 @@ file path: packages/MakePackager/src/config/config.php
 A few custom artisan commands to create specific packages:
 
 
- php artisan package:make-jobs YourPackageName // to create jobs for a specific package
+ php artisan package:make-job YourFileName YourPackageName // to create jobs for a specific package
  
- php artisan package:make-migration YourPackageName // to create migration files for a specific package
+ php artisan package:make-migration YourFileName YourPackageName // to create migration files for a specific package
  
- php artisan package:make-listener YourPackageName // to create listeners for a specific package
+ php artisan package:make-listener YourFileName  YourPackageName // to create listeners for a specific package
  
- php artisan package:make-event YourPackageName // to create events for a specific package
+ php artisan package:make-event YourFileName YourPackageName // to create events for a specific package
 
 In the future, more artisan commands will be added.
 This revision organizes the content into headings and adds formatting for better readability. If you need further adjustments, feel free to ask!
