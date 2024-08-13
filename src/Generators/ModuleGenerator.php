@@ -89,7 +89,7 @@ class ModuleGenerator extends Generator
         FileRepository $module = null,
         Config $config = null,
         Filesystem $filesystem = null,
-        Console $console = null
+        Console $console = null,
 
     ) {
         $this->name = $name;

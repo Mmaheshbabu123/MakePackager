@@ -5,17 +5,35 @@ namespace $NAMESPACE$;
 use $EVENTNAME$;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Http\Controllers\EmailTemplates\Services\EmailTemplateClass;
+use App\Http\Controllers\EmailTemplates\EmailTokensData\UsersTokensData;
+use App\Http\Controllers\EmailTemplates\EmailTokensData\TeamOrPojectData;
+use App\Http\Controllers\EmailTemplates\EmailTokensData\CompanyTokensData;
+use App\Http\Controllers\EmailTemplates\EmailTokensData\TodosTokensData;
+use App\Http\Controllers\EmailTemplates\EmailTokensData\TicketsTokensData;
+use App\Http\Controllers\EmailTemplates\EmailTokensData\SplintsTokensData;
+use App\Http\Controllers\EmailTemplates\EmailTokensData\AttributesTokensData;
+use Illuminate\Http\Request;
 
 class $CLASS$
 {
+    use UsersTokensData;
+    use TeamOrPojectData;
+    use CompanyTokensData;
+    use TodosTokensData;
+    use TicketsTokensData;
+    use SplintsTokensData;
+    use AttributesTokensData;
+    protected $request;
+
     /**
      * Create the event listener.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
-        //
+        //$this->request = $request;  //uncomment if u need these.
     }
 
     /**
@@ -26,6 +44,48 @@ class $CLASS$
      */
     public function handle($SHORTEVENTNAME$ $event)
     {
-        //
+       try {
+            $data = $event->data;
+                $url = $this->getUrl() ?? ''; //uncomment these if you need to send link in mail
+                $id = $data['id'] ?? 0;  //pass particular key
+                $email = array_column($this->getProjectMembers('project_id' , 'company_id') , 'email') ?? 0;//get members to whome we have to sen d mail
+                $tokens = [
+                    //mention your tokens and their values here
+                ];
+                $name = '' ?? '';//please mention your email template
+                $emailObj = new  EmailTemplateClass();
+                return $emailObj->sendMail($name, $url, $id, $email, $tokens);
+        } catch (\Exception $e) {
+            $response = [
+                'msg' => $e->getMessage(),
+                'file'  => $e->getFile(),
+                'line' => $e->getLine(),
+            ];
+            storeCustomLogs($response, 'siddulog');
+        }
+    }
+     public function getTeamName($id)
+    {
+        $this->setTeamProjectId($id);
+        return $this->getTeamsOrProjectTokensData()['team_project_name'];
+    }
+    public function getProjectMembers($projectId , $companyId)
+    {
+        $this->setTeamCompanyId($companyId);
+        $this->setTeamProjectId($projectId);
+       return $this -> getProjectMembersDetails();
+    }
+    public function getUrl()
+    {
+        return  env('APP_FRONTEND_URL') . 'prepare your link here';
+    }
+     private function getUserMail($id)
+    {
+        $this->setUserId($id);
+        return $this->getUserDetails();
+    }
+    public function gettingAttribuitesData($id){
+        $this->setAttributeId($id);
+        return $this->getAttributeData();
     }
 }

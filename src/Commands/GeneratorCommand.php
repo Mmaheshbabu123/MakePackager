@@ -3,7 +3,7 @@
 namespace Packages\MakePackager\Commands;
 
 use Illuminate\Console\Command;
-use Packages\MakePackager\Exceptions\FileAlreadyExistException;
+use Nwidart\Modules\Exceptions\FileAlreadyExistException;
 use Packages\MakePackager\Generators\FileGenerator;
 
 abstract class GeneratorCommand extends Command

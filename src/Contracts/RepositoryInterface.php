@@ -2,7 +2,7 @@
 
 namespace Packages\MakePackager\Contracts;
 
-use Packages\MakePackager\Exceptions\ModuleNotFoundException;
+use Nwidart\Modules\Exceptions\ModuleNotFoundException;
 //use Nwidart\Modules\Module;
 
 interface RepositoryInterface
