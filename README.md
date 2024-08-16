@@ -100,6 +100,7 @@ Folder Structure:
  ```
  
 If you want to apply middleware authentication automatically, just add the `CustomRouteServiceProvider`. This will ensure that the middleware is added by default.
+If you don't want to use the custom middleware setup, you can remove the extension of CustomRouteServiceProvider and instead extend ServiceProvider directly.
 
 # MakePackager Artisan Commands
 
