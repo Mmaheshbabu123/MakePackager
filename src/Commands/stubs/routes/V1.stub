@@ -1,0 +1,7 @@
+<?php
+
+use Illuminate\Http\Request;
+
+Route::get('/$LOWER_NAME$', function() {
+return 'this is $LOWER_NAME$ package api v1';
+});

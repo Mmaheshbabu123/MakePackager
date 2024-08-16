@@ -31,7 +31,7 @@ return [
         'path' => base_path('packages/Ifo/laravel-modules/src/Commands/stubs'),
         'files' => [
             'routes/web' => 'src/routes/web.php',
-            'routes/api' => 'src/routes/api.php',
+            'routes/V1' => 'src/routes/V1.php',
             'views/index' => 'src/Resources/views/index.blade.php',
             'views/master' => 'src/Resources/views/layouts/master.blade.php',
             'scaffold/config' => 'src/Config/config.php',
@@ -44,6 +44,7 @@ return [
         'replacements' => [
             'routes/web' => ['LOWER_NAME', 'STUDLY_NAME'],
             'routes/api' => ['LOWER_NAME'],
+            'routes/V1' => ['LOWER_NAME'],
             'webpack' => ['LOWER_NAME'],
             'json' => ['LOWER_NAME', 'STUDLY_NAME', 'MODULE_NAMESPACE', 'PROVIDER_NAMESPACE'],
             'views/index' => ['LOWER_NAME'],

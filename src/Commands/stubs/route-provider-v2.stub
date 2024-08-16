@@ -1,0 +1,60 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use App\Providers\CustomRouteServiceProvider;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+
+class $CLASS$ extends CustomRouteServiceProvider
+{
+    /**
+     * The module namespace to assume when generating URLs to actions.
+     *
+     * @var string
+     */
+    protected $moduleNamespace = '$MODULE_NAMESPACE$\$MODULE$\$CONTROLLER_NAMESPACE$';
+
+    protected  $moduleName = '$MODULE$';
+
+
+            /**
+             * Called before routes are registered.
+             *
+             * Register any model bindings or pattern-based filters.
+             *
+             * @return void
+             */
+            public function boot()
+            {
+              parent::boot();
+            }
+
+
+        // /**
+        //  * Get the paths to the web routes files.
+        //  * this method if we want to overirde any routes we can un comment and use it
+        //  * @return array
+        //  */
+        // protected function getWebRoutesPaths()
+        // {
+        //     return [
+        //         module_path($this->moduleName, '$WEB_ROUTES_PATH$'),
+        //
+        //     ];
+        // }
+        //
+        // /**
+        //  * Get the paths to the api routes files.
+        //  *
+        //  * @return array
+        //  */
+        // protected function getApiRoutesPaths()
+        // {
+        //     return [
+        //
+        //           module_path($this->moduleName, ''$API_ROUTES_PATH$'),
+        //
+        //     ];
+        // }
+}
