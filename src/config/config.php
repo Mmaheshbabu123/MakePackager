@@ -118,8 +118,8 @@ return [
             'assets' => ['path' => 'src/Resources/assets', 'generate' => true],
             'lang' => ['path' => 'src/Resources/lang', 'generate' => true],
             'views' => ['path' => 'src/Resources/views', 'generate' => true],
-            'test' => ['path' => 'src/Tests/Unit', 'generate' => true],
-            'test-feature' => ['path' => 'src/Tests/Feature', 'generate' => true],
+            'test-unit' => ['path' => 'src/Tests/Unit','namespace'=>'Tests\Unit', 'generate' => true],
+            'test-feature' => ['path' => 'src/Tests/Feature','namespace'=>'Tests\Feature' ,'generate' => true],
             'repository' => ['path' => 'Repositories', 'generate' => false],
             'event' => ['path' => 'src/Events', 'namespace'=>'Events','generate' => true],
             'listener' => ['path' => 'src/Listeners', 'namespace'=>'Listeners','generate' => true],
@@ -159,7 +159,8 @@ Commands\JobMakeCommand::class,
 Commands\EventMakeCommand::class,
 Commands\ListenerMakeCommand::class,
 Commands\ModelMakeCommand::class,
-Commands\MigrationMakeCommand::class
+Commands\MigrationMakeCommand::class,
+Commands\TestMakeCommand::class,
     ],
 
     /*

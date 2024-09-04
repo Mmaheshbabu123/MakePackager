@@ -23,7 +23,8 @@ class ConsoleServiceProvider extends ServiceProvider
       Commands\EventMakeCommand::class,
     Commands\ModelMakeCommand::class,
       Commands\ListenerMakeCommand::class,
-      Commands\MigrationMakeCommand::class
+      Commands\MigrationMakeCommand::class,
+          Commands\TestMakeCommand::class,
     ];
 
     public function register(): void
