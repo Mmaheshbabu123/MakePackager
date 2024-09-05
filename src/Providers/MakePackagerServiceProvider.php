@@ -5,6 +5,7 @@ use Packages\MakePackager\Providers\ModuleServiceProvider;
 use Illuminate\Support\ServiceProvider;
 use Packages\MakePackager\Contracts\RepositoryInterface;
 use Packages\MakePackager\Laravel;
+use SimpleXMLElement;
 class MakePackagerServiceProvider extends ModuleServiceProvider
 {
     /**
