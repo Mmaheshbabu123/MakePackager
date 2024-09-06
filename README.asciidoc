@@ -181,6 +181,7 @@ This command creates a test file in a specific package.
 * Third Argument (`--feature`): An optional flag. If provided, the test file will be created under the `Feature` folder. If omitted, the test file will be created under the `Unit` folder by default.
 
 
+This package has an additional feature: it will automatically register the test and unit scripts in the root project's `phpunit.xml` file, allowing them to be executed smoothly.
 
 More artisan commands will be added in future updates.
 
