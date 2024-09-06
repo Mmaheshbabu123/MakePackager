@@ -1,1 +1,186 @@
+= How to Setup MakePackager Module in Your Laravel Project
+
+This package is a CLI tool that helps you build a fully structured package for a Laravel application without spending a lot of time. You no longer need to struggle with initializing the skeleton for your package. Instead, focus on writing the source code while Laravel Packager organizes the package structure for you.
+
+== Step 0: Pre-Installation Setup
+
+Before installing, please add the necessary file to your root project. You can find the file and instructions at the following link:
+
+link:https://github.com/Mmaheshbabu123/make-packager-custom-route-provider/blob/main/README.md[Custom Route Provider Setup]
+
+== Step 1: Install the Package
+
+Run the following command to install the package:
+
+[source,bash]
+----
+composer require ifo/laravel-make-packager
+----
+
+== Step 2: Dump Autoload
+
+After installing the package, run the following command to autoload the package:
+
+[source,bash]
+----
+composer dump-autoload
+----
+
+The package has been successfully installed.
+
+= How to Create a Custom Package
+
+== Step 1: Create a New Package
+
+Run the following command to create a new package:
+
+[source,bash]
+----
+php artisan package:make YourPackageName
+----
+
+This command will create the folder structure and necessary files for your package, including routes, `ServiceProvider`, and an `AbstractController` for enforcing rules and validations.
+
+You can refer to the screenshot below:
+
+image::https://github.com/Mmaheshbabu123/MakePackager/assets/29708637/f12f0829-9023-4a55-bfaf-4025d59bde64[alt=Package Structure]
+
+== Folder Structure
+
+Here’s what the folder structure will look like:
+
+[source]
+----
+--> packageName
+    --> composer.json
+    --> module.json
+    --> src
+        --> Config
+        --> Console
+        --> Database
+        --> Events
+        --> Http
+            --> Controllers
+                --> AbstractController // For rules and validations, extends in controllers
+                --> PackageNameController
+            --> Middleware
+            --> Requests
+        --> Jobs
+        --> Listeners
+        --> Models
+        --> Providers
+            --> ModuleServiceProvider
+            --> RouteServiceProvider
+        --> Resources
+        --> routes
+            --> V1.php
+            --> web.php
+        --> Test
+            -->Unit
+            -->Feature
+----
+
+== Step 2: Register the Package
+
+To register the package, follow the setup steps below:
+
+=== Step 1: Create Package Directory
+
+Create a `packages` folder and move the `MakePackager` directory inside it.
+
+=== Step 2: Update Composer Autoload
+
+Add the package namespace to the `composer.json` file under the `psr-4` key:
+
+[source,json]
+----
+"autoload": {
+   "psr-4": {
+      "Packages\\MakePackager\\": "packages/MakePackager/src"
+   }
+}
+----
+
+=== Step 3: Register the Service Provider
+
+* For Laravel version below 10:
+  Register the `ServiceProvider` in the `config/app.php` file inside the `providers` array:
+
+[source,php]
+----
+'providers' => [
+    Packages\MakePackager\Providers\MakePackagerServiceProvider::class,
+]
+----
+
+* For Laravel version 10 and above:
+  Register the `ServiceProvider` in the `app/Providers/AppServiceProvider.php` file in the `register` method:
+
+[source,php]
+----
+public function register(): void
+{
+    $this->app->register(CustomPackageServiceProvider::class);
+}
+----
+
+=== Step 4: Initial Setup Completion
+
+Run the following commands to complete the setup:
+
+[source,bash]
+----
+composer dump-autoload
+php artisan config:cache
+php artisan config:clear
+----
+
+== Adding Middleware
+
+If you want to automatically apply middleware authentication, add the `CustomRouteServiceProvider`. This will ensure that the middleware is added by default.
+
+If you prefer not to use the custom middleware setup, you can remove the extension of `CustomRouteServiceProvider` and instead extend `ServiceProvider` directly.
+
+= MakePackager Artisan Commands
+
+Here are a few custom artisan commands to create specific packages:
+
+[source,bash]
+----
+php artisan package:make-job YourFileName YourPackageName
+----
+
+to create jobs for a specific package
+
+[source,bash]
+----
+php artisan package:make-migration YourFileName YourPackageName 
+----
+
+to create migration files for a specific package
+[source,bash]
+----
+php artisan package:make-listener YourFileName YourPackageName 
+----
+
+to create listeners for a specific package
+[source,bash]
+----
+php artisan package:make-event YourFileName YourPackageName 
+----
+
+to create events for a specific package
+[source,bash]
+----
+sudo php artisan package:make-test SamleTest Myo --feature
+----
+This command creates a test file in a specific package.
+
+* First Argument (`FileName`): The name of the test file you want to create.
+* Second Argument (`PackageName`): The name of the package where the test file will be placed.
+* Third Argument (`--feature`): An optional flag. If provided, the test file will be created under the `Feature` folder. If omitted, the test file will be created under the `Unit` folder by default.
+
+
+
+More artisan commands will be added in future updates.
 
