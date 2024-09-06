@@ -1,4 +1,4 @@
-= How to Setup MakePackager Module in Your Laravel Project
+= How to Setup MakePackager Package  in Your Laravel Project
 
 This package is a CLI tool that helps you build a fully structured package for a Laravel application without spending a lot of time. You no longer need to struggle with initializing the skeleton for your package. Instead, focus on writing the source code while Laravel Packager organizes the package structure for you.
 
