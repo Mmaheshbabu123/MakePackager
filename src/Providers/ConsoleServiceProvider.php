@@ -28,13 +28,11 @@ class ConsoleServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-      logger('console commander ---www');
         $this->commands(config('modules.commands', $this->commands));
     }
 
     public function provides(): array
     {
-      logger('console commander ---');
         return $this->commands;
     }
 }

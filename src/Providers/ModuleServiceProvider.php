@@ -35,7 +35,6 @@ abstract class ModuleServiceProvider extends ServiceProvider
      */
     protected function registerNamespaces()
     {
-      logger('name space abstract');
         // $configPath = __DIR__ . '/../config/config.php';
         //
         // $this->publishes([
@@ -63,7 +62,6 @@ abstract class ModuleServiceProvider extends ServiceProvider
      */
     protected function registerProviders()
     {
-        logger('register providers-----');
        $this->app->register(ConsoleServiceProvider::class);
         // $this->app->register(ContractsServiceProvider::class);
     }

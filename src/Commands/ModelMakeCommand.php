@@ -127,9 +127,6 @@ class ModelMakeCommand extends GeneratorCommand
     protected function getTemplateContents()
     {
         $module = $this->laravel['modules']->findInModuleNameSpace($this->getModuleName());
-
-       logger($module);
-       logger('hehehe maode;');
         return (new Stub('/model.stub', [
             'NAME'              => $this->getModelName(),
             'FILLABLE'          => $this->getFillable(),

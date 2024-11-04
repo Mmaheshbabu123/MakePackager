@@ -15,14 +15,13 @@ class MakePackagerServiceProvider extends ModuleServiceProvider
     public function register()
     {
         $this->registerProviders();
-       $this->registerServices();
-      $this->registerNamespaces();
-      $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'modules');
-      logger('register');
+        $this->registerServices();
+        $this->registerNamespaces();
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'modules');
+
     }
     public function boot()
     {
-        logger('boot');
       //  $this->boot(__DIR__.'/../Database/migrations');
       // //  parent::boot();
       // $this->loadRoutesFrom(__DIR__.'/../Routes/web.php');
@@ -46,7 +45,6 @@ class MakePackagerServiceProvider extends ModuleServiceProvider
 
           return new Laravel\LaravelFileRepository($app, $path);
       });
-      logger('register serverices');
         $this->app->alias(Contracts\RepositoryInterface::class, 'modules');
     }
 }

@@ -142,7 +142,6 @@ abstract class FileRepository implements RepositoryInterface, Countable
     public function scan()
     {
         $paths = $this->getScanPaths();
-        logger($paths);
         $modules = [];
 
         foreach ($paths as $key => $path) {
@@ -643,7 +642,6 @@ abstract class FileRepository implements RepositoryInterface, Countable
     public function Modulescan()
     {
         $paths = $this->getScanPaths();
-        logger($paths);
         $modules = [];
         $index = 0;
         foreach ($paths as $key => $path) {
@@ -659,7 +657,6 @@ abstract class FileRepository implements RepositoryInterface, Countable
                 $index++;
             }
         }
-       logger($modules);
         return $modules;
     }
 
